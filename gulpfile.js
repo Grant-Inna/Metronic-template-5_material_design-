@@ -38,25 +38,29 @@ gulp.task('sass', function () {
 	gulp.src('./sass/layouts/layout/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout/css'));
   gulp.src('./sass/layouts/layout/themes/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout/css/themes'));
 
-  gulp.src('./sass/layouts/layout2/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout2/css'));
-  gulp.src('./sass/layouts/layout2/themes/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout2/css/themes'));
+/*  gulp.src('./sass/layouts/layout2/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout2/css'));
+  gulp.src('./sass/layouts/layout2/themes/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout2/css/themes'));
 
-  gulp.src('./sass/layouts/layout3/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout3/css'));
-  gulp.src('./sass/layouts/layout3/themes/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout3/css/themes'));
+  gulp.src('./sass/layouts/layout3/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout3/css'));
+  gulp.src('./sass/layouts/layout3/themes/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout3/css/themes'));
 
-  gulp.src('./sass/layouts/layout4/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout4/css'));
-  gulp.src('./sass/layouts/layout4/themes/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout4/css/themes'));
+  gulp.src('./sass/layouts/layout4/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout4/css'));
+  gulp.src('./sass/layouts/layout4/themes/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout4/css/themes'));*/
 
   gulp.src('./sass/layouts/layout5/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout5/css'));
+  gulp.src(['./assets/layouts/layout5/css/*.css','!./assets/layouts/layout5/css/*.min.css']).pipe(minifyCss()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/layouts/layout5/css/'));
 
-  gulp.src('./sass/layouts/layout6/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout6/css'));
+  gulp.src('./sass/layouts/layout/themes/light2.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout/css/themes'));
+  gulp.src(['./assets/layouts/layout/css/themes/light2.html','!./assets/layouts/layout/css/themes/*.min.css']).pipe(minifyCss()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/layouts/layout/css/themes'));
 
-  gulp.src('./sass/layouts/layout7/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout7/css'));
+/*  gulp.src('./sass/layouts/layout6/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout6/css'));
+
+  gulp.src('./sass/layouts/layout7/!*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout7/css'));*/
 });
 
 //*** SASS watch(realtime) compiler task
 gulp.task('sass:watch', function () {
-	gulp.watch('./sass/**/*.scss', ['sass']);
+	gulp.watch('./sass/**/*.scss', ['sass', 'minify']);
 });
 
 //*** CSS & JS minify task
@@ -72,11 +76,11 @@ gulp.task('minify', function () {
 
     gulp.src(['./assets/global/plugins/bootstrap/css/*.css','!./assets/global/plugins/bootstrap/css/*.min.css']).pipe(minifyCss()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/global/plugins/bootstrap/css/'));
 
-    //js minify
-    gulp.src(['./assets/apps/scripts/*.js','!./assets/apps/scripts/*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/apps/scripts/'));
-    gulp.src(['./assets/global/scripts/*.js','!./assets/global/scripts/*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/global/scripts'));
-    gulp.src(['./assets/pages/scripts/*.js','!./assets/pages/scripts/*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/pages/scripts'));
-    gulp.src(['./assets/layouts/**/scripts/*.js','!./assets/layouts/**/scripts/*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/layouts/'));
+    /*//js minify
+    gulp.src(['./assets/apps/scripts/!*.js','!./assets/apps/scripts/!*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/apps/scripts/'));
+    gulp.src(['./assets/global/scripts/!*.js','!./assets/global/scripts/!*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/global/scripts'));
+    gulp.src(['./assets/pages/scripts/!*.js','!./assets/pages/scripts/!*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/pages/scripts'));
+    gulp.src(['./assets/layouts/!**!/scripts/!*.js','!./assets/layouts/!**!/scripts/!*.min.js']).pipe(uglify()).pipe(rename({suffix: '.min'})).pipe(gulp.dest('./assets/layouts/'));*/
 });
 
 //*** RTL convertor task
