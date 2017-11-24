@@ -2,9 +2,38 @@
 
 @import '../../layouts/layout/themes/light2.scss';
 
+$my-main-back-blue: #4e84b2;
+
 .page-header .navbar-fixed-top { background: #e9ecf3; }
-.page-header .navbar .navbar-nav>li>a { background: #e9ecf3; }
+.page-header .navbar .navbar-nav>li>a { background: $my-main-back-blue; color: #e9ecf3 }
+.page-header .navbar-collapse .navbar-nav .more-dropdown>a:after { color: #e9ecf3 }
+.page-header .navbar .navbar-nav>li:hover>a { background: $my-main-back-blue + 50%; }
+
+.page-header .navbar .topbar-actions .btn-group-red:after { content: none }
+.page-header .navbar .topbar-actions .btn-group-img .btn>span { color: #e9ecf3; }
+.page-header .navbar .topbar-actions .btn-group-img .btn { border-right-width: 0; }
+
+.dropdown-menu-v2 { background: #e9ecf3; }
+//.dropdown-menu-v2>li>a:hover { background: #F9FDF1 + 50%; }
+.page-header .navbar .topbar-actions .btn-group-notification .dropdown-menu-list>li:hover:hover { background: #F9FDF1 + 50%; }
+/*.dropdown-menu-v2 .active>a, .dropdown-menu-v2 .active>a:focus,
+.dropdown-menu-v2 .active>a:hover,
+.page-header .navbar .topbar-actions .btn-group-notification .external,
+.page-header .navbar .topbar-actions .btn-group-notification .external h3 { background: #45b6af; color: #606e7a; }*/
+
+.page-logo, .page-header .navbar .search { display: none !important }
+@media (max-width: 768px) {
+  .page-header .page-logo {
+    display: none;
+  }
+}
 
 @media screen and ( min-width: 1261px ) {
   .wrapper, .navbar-fixed-top { width: 1260px; margin: 0 auto; }
+}
+@media (min-width: 991px) {
+  .mega-menu .dropdown-menu-fw {
+    left: 14px;
+    right: 14px;
+  }
 }
