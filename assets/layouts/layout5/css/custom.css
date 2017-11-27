@@ -640,15 +640,15 @@ body {
 .page-header .navbar-fixed-top {
   background: #e9ecf3; }
 
-.page-header .navbar .navbar-nav > li > a {
-  background: #4e84b2;
-  color: #e9ecf3; }
-
 .page-header .navbar-collapse .navbar-nav .more-dropdown > a:after {
   color: #e9ecf3; }
 
+.page-header .navbar .navbar-nav > li > a {
+  background: #6298c6;
+  color: #e9ecf3; }
+
 .page-header .navbar .navbar-nav > li:hover > a {
-  background: #80b6e4; }
+  background: #4e84b2; }
 
 .page-header .navbar .topbar-actions .btn-group-red:after {
   content: none; }
